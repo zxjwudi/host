@@ -1,0 +1,2171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ODEM PUBLIC "-//PFSW//DTD ODEM 1.1" "http://pfsw.org/ODEM/schema/dtd/odem-1.1.dtd">
+
+<ODEM version="1">
+  <header>
+    <created-by>
+      <exporter version="1.1.1">org.pf.tools.cda.ext.export.xml.XmlFileODEMExporter</exporter>
+      <provider>Manfred Duchrow Consulting &amp; Software</provider>
+    </created-by>
+  </header>
+  <context name="Prevayler">
+    <container name="/Users/tangchris/Documents/36workspace/Prevayler" classification="dir">
+      <namespace name="bin.org.prevayler">
+        <type name="bin.org.prevayler.Clock" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="2">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.util.Date" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.Prevayler" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="8">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.Clock" classification="uses" />
+            <depends-on name="org.prevayler.Transaction" classification="uses" />
+            <depends-on name="org.prevayler.Query" classification="uses" />
+            <depends-on name="org.prevayler.TransactionWithQuery" classification="uses" />
+            <depends-on name="org.prevayler.SureTransactionWithQuery" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.PrevaylerFactory" classification="class" visibility="public">
+          <dependencies count="37">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.Clock" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.implementation.snapshot.NullSnapshotManager" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.OldNetwork" classification="uses" />
+            <depends-on name="org.prevayler.foundation.monitor.Monitor" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="java.util.Map" classification="uses" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.JavaSerializer" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.XStreamSerializer" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.SkaringaSerializer" classification="uses" />
+            <depends-on name="org.prevayler.implementation.snapshot.GenericSnapshotManager" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionPublisher" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.censorship.TransactionCensor" classification="uses" />
+            <depends-on name="org.prevayler.implementation.journal.Journal" classification="uses" />
+            <depends-on name="org.prevayler.implementation.PrevaylerDirectory" classification="uses" />
+            <depends-on name="java.util.HashMap" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="org.prevayler.implementation.clock.MachineClock" classification="uses" />
+            <depends-on name="java.lang.IllegalStateException" classification="uses" />
+            <depends-on name="org.prevayler.implementation.replication.ServerListener" classification="uses" />
+            <depends-on name="org.prevayler.implementation.PrevaylerImpl" classification="uses" />
+            <depends-on name="org.prevayler.implementation.replication.ClientPublisher" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.CentralPublisher" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.censorship.StrictTransactionCensor" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.censorship.LiberalTransactionCensor" classification="uses" />
+            <depends-on name="org.prevayler.implementation.journal.PersistentJournal" classification="uses" />
+            <depends-on name="org.prevayler.implementation.journal.TransientJournal" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.OldNetworkImpl" classification="uses" />
+            <depends-on name="java.util.Collections" classification="uses" />
+            <depends-on name="org.prevayler.foundation.monitor.SimpleMonitor" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.Query" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="3">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.SureTransactionWithQuery" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="3">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.TransactionWithQuery" classification="extends" />
+            <depends-on name="java.util.Date" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.Transaction" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="3">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.Serializable" classification="extends" />
+            <depends-on name="java.util.Date" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.TransactionWithQuery" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="4">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.Serializable" classification="extends" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.demos.demo1">
+        <type name="bin.org.prevayler.demos.demo1.Main" classification="class" visibility="public">
+          <dependencies count="14">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo1.NumberKeeper" classification="uses" />
+            <depends-on name="org.prevayler.PrevaylerFactory" classification="uses" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo1.PrimeCalculator" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.io.BufferedReader" classification="uses" />
+            <depends-on name="java.io.InputStreamReader" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="java.io.Reader" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo1.NumberKeeper" classification="class" visibility="default">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+            <depends-on name="java.util.ArrayList" classification="uses" />
+            <depends-on name="java.lang.Integer" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo1.NumberStorageTransaction" classification="class" visibility="default">
+          <dependencies count="4">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.Transaction" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo1.NumberKeeper" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo1.PrimeCalculator" classification="class" visibility="default">
+          <dependencies count="12">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo1.NumberKeeper" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo1.NumberStorageTransaction" classification="uses" />
+            <depends-on name="org.prevayler.Transaction" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Math" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.demos.demo2">
+        <type name="bin.org.prevayler.demos.demo2.Main" classification="class" visibility="public">
+          <dependencies count="11">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="org.prevayler.PrevaylerFactory" classification="uses" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="java.lang.Thread" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.BankFrame" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.MainReplica" classification="class" visibility="public">
+          <dependencies count="9">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.PrevaylerFactory" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.Main" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.MainReplicaServer" classification="class" visibility="public">
+          <dependencies count="9">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.PrevaylerFactory" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.Main" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.MainSkaringa" classification="class" visibility="public">
+          <dependencies count="10">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.PrevaylerFactory" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.SkaringaSerializer" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.Main" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.MainTransient" classification="class" visibility="public">
+          <dependencies count="10">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="org.prevayler.PrevaylerFactory" classification="uses" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.Main" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.MainXStream$1" classification="class" visibility="default">
+          <dependencies count="8">
+            <depends-on name="org.prevayler.foundation.serialization.XStreamSerializer" classification="extends" />
+            <depends-on name="com.thoughtworks.xstream.XStream" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.AccountEntry" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.MainXStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.MainXStream" classification="class" visibility="public">
+          <dependencies count="11">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.PrevaylerFactory" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.MainXStream$1" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.XStreamSerializer" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.Main" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.demos.demo2.business">
+        <type name="bin.org.prevayler.demos.demo2.business.Account$InvalidAmount" classification="class" visibility="public">
+          <dependencies count="3">
+            <depends-on name="java.lang.Exception" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.Account$InvalidHolder" classification="class" visibility="public">
+          <dependencies count="3">
+            <depends-on name="java.lang.Exception" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.Account" classification="class" visibility="public">
+          <dependencies count="15">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+            <depends-on name="java.util.Set" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.AccountListener" classification="uses" />
+            <depends-on name="java.util.Iterator" classification="uses" />
+            <depends-on name="java.util.ArrayList" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account$InvalidHolder" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.text.DecimalFormat" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account$InvalidAmount" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.AccountEntry" classification="uses" />
+            <depends-on name="java.util.HashSet" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.AccountEntry" classification="class" visibility="public">
+          <dependencies count="6">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.text.SimpleDateFormat" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.AccountListener" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="1">
+            <depends-on name="java.lang.Object" classification="extends" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.Bank$1" classification="class" visibility="default">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.util.Comparator" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.Bank$AccountNotFound" classification="class" visibility="public">
+          <dependencies count="5">
+            <depends-on name="java.lang.Exception" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.Bank" classification="class" visibility="public">
+          <dependencies count="19">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="java.util.Map" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.BankListener" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.util.HashMap" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account$InvalidHolder" classification="uses" />
+            <depends-on name="java.lang.Long" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank$AccountNotFound" classification="uses" />
+            <depends-on name="java.util.ArrayList" classification="uses" />
+            <depends-on name="java.util.Collection" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank$1" classification="uses" />
+            <depends-on name="java.util.Collections" classification="uses" />
+            <depends-on name="java.util.Comparator" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account$InvalidAmount" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.BankListener" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="2">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.demos.demo2.business.transactions">
+        <type name="bin.org.prevayler.demos.demo2.business.transactions.AccountCreation" classification="class" visibility="public">
+          <dependencies count="7">
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.BankTransaction" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account$InvalidHolder" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.transactions.AccountDeletion" classification="class" visibility="public">
+          <dependencies count="6">
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.BankTransaction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank$AccountNotFound" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.transactions.AccountTransaction" classification="class" visibility="default" isAbstract="yes">
+          <dependencies count="6">
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.BankTransaction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.transactions.BankTransaction" classification="class" visibility="public" isAbstract="yes">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.TransactionWithQuery" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.transactions.Deposit" classification="class" visibility="public">
+          <dependencies count="4">
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.AccountTransaction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account$InvalidAmount" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.transactions.HolderChange" classification="class" visibility="public">
+          <dependencies count="5">
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.AccountTransaction" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account$InvalidHolder" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.transactions.Transfer" classification="class" visibility="public">
+          <dependencies count="5">
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.BankTransaction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.business.transactions.Withdrawal" classification="class" visibility="public">
+          <dependencies count="4">
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.AccountTransaction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account$InvalidAmount" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.demos.demo2.gui">
+        <type name="bin.org.prevayler.demos.demo2.gui.AccountEditFrame$DepositAction" classification="class" visibility="default">
+          <dependencies count="10">
+            <depends-on name="org.prevayler.demos.demo2.gui.RobustAction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AccountEditFrame" classification="uses" />
+            <depends-on name="java.lang.Number" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.Deposit" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="org.prevayler.TransactionWithQuery" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.AccountEditFrame$HolderListener" classification="class" visibility="default">
+          <dependencies count="11">
+            <depends-on name="java.awt.event.FocusAdapter" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AccountEditFrame" classification="uses" />
+            <depends-on name="java.awt.event.FocusEvent" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.HolderChange" classification="uses" />
+            <depends-on name="org.prevayler.TransactionWithQuery" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.RobustAction" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.AccountEditFrame$TransferAction" classification="class" visibility="default">
+          <dependencies count="8">
+            <depends-on name="org.prevayler.demos.demo2.gui.RobustAction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AccountEditFrame" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.TransferFrame" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="javax.swing.JDesktopPane" classification="uses" />
+            <depends-on name="java.awt.Container" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.AccountEditFrame$WithdrawAction" classification="class" visibility="default">
+          <dependencies count="10">
+            <depends-on name="org.prevayler.demos.demo2.gui.RobustAction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AccountEditFrame" classification="uses" />
+            <depends-on name="java.lang.Number" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.Withdrawal" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="org.prevayler.TransactionWithQuery" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.AccountEditFrame" classification="class" visibility="default">
+          <dependencies count="26">
+            <depends-on name="org.prevayler.demos.demo2.gui.AccountFrame" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.business.AccountListener" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="javax.swing.JTextField" classification="uses" />
+            <depends-on name="javax.swing.JList" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.awt.Container" classification="uses" />
+            <depends-on name="javax.swing.Box" classification="uses" />
+            <depends-on name="javax.swing.JPanel" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Number" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AccountEditFrame$HolderListener" classification="uses" />
+            <depends-on name="java.awt.event.FocusListener" classification="uses" />
+            <depends-on name="java.awt.Component" classification="uses" />
+            <depends-on name="javax.swing.JScrollPane" classification="uses" />
+            <depends-on name="javax.swing.JButton" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AccountEditFrame$DepositAction" classification="uses" />
+            <depends-on name="javax.swing.Action" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AccountEditFrame$WithdrawAction" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AccountEditFrame$TransferAction" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="javax.swing.JOptionPane" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.lang.Long" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.AccountFrame" classification="class" visibility="default" isAbstract="yes">
+          <dependencies count="14">
+            <depends-on name="javax.swing.JInternalFrame" classification="extends" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="javax.swing.JTextField" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.awt.Container" classification="uses" />
+            <depends-on name="javax.swing.Box" classification="uses" />
+            <depends-on name="javax.swing.JPanel" classification="uses" />
+            <depends-on name="javax.swing.JLabel" classification="uses" />
+            <depends-on name="java.awt.Component" classification="uses" />
+            <depends-on name="java.awt.Color" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.text.ParseException" classification="uses" />
+            <depends-on name="java.text.DecimalFormat" classification="uses" />
+            <depends-on name="java.lang.Number" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.AllAccountsFrame$AccountCreation" classification="class" visibility="default">
+          <dependencies count="8">
+            <depends-on name="javax.swing.AbstractAction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AllAccountsFrame" classification="uses" />
+            <depends-on name="java.awt.event.ActionEvent" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.NewAccountFrame" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="javax.swing.JDesktopPane" classification="uses" />
+            <depends-on name="java.awt.Container" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.AllAccountsFrame$AccountDeleteAction" classification="class" visibility="default">
+          <dependencies count="11">
+            <depends-on name="org.prevayler.demos.demo2.gui.AllAccountsFrame$SelectedAccountAction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AllAccountsFrame" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="javax.swing.JOptionPane" classification="uses" />
+            <depends-on name="java.awt.Component" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.AccountDeletion" classification="uses" />
+            <depends-on name="org.prevayler.TransactionWithQuery" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.AllAccountsFrame$AccountEditAction" classification="class" visibility="default">
+          <dependencies count="8">
+            <depends-on name="org.prevayler.demos.demo2.gui.AllAccountsFrame$SelectedAccountAction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AllAccountsFrame" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AccountEditFrame" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="javax.swing.JDesktopPane" classification="uses" />
+            <depends-on name="java.awt.Container" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.AllAccountsFrame$SelectedAccountAction" classification="class" visibility="default" isAbstract="yes">
+          <dependencies count="9">
+            <depends-on name="org.prevayler.demos.demo2.gui.RobustAction" classification="extends" />
+            <depends-on name="javax.swing.event.ListSelectionListener" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AllAccountsFrame" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="javax.swing.event.ListSelectionEvent" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="javax.swing.JList" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.AllAccountsFrame" classification="class" visibility="default">
+          <dependencies count="21">
+            <depends-on name="javax.swing.JInternalFrame" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.business.BankListener" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.AccountListener" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="javax.swing.JList" classification="uses" />
+            <depends-on name="java.awt.Container" classification="uses" />
+            <depends-on name="java.util.Iterator" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="javax.swing.JPanel" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.awt.Component" classification="uses" />
+            <depends-on name="javax.swing.JScrollPane" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="javax.swing.JButton" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AllAccountsFrame$AccountCreation" classification="uses" />
+            <depends-on name="javax.swing.Action" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AllAccountsFrame$AccountEditAction" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AllAccountsFrame$AccountDeleteAction" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AllAccountsFrame$SelectedAccountAction" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.BankFrame$1" classification="class" visibility="default">
+          <dependencies count="10">
+            <depends-on name="java.lang.Thread" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.gui.BankFrame" classification="uses" />
+            <depends-on name="java.text.DateFormat" classification="uses" />
+            <depends-on name="java.text.SimpleDateFormat" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="org.prevayler.Clock" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Cool" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.BankFrame$RobustnessFrame" classification="class" visibility="default">
+          <dependencies count="8">
+            <depends-on name="javax.swing.JInternalFrame" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="javax.swing.JLabel" classification="uses" />
+            <depends-on name="javax.swing.Box" classification="uses" />
+            <depends-on name="java.awt.Container" classification="uses" />
+            <depends-on name="java.awt.Color" classification="uses" />
+            <depends-on name="java.awt.Component" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.BankFrame" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.BankFrame" classification="class" visibility="public">
+          <dependencies count="11">
+            <depends-on name="javax.swing.JFrame" classification="extends" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="javax.swing.JDesktopPane" classification="uses" />
+            <depends-on name="java.lang.Thread" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.awt.Container" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.AllAccountsFrame" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.BankFrame$RobustnessFrame" classification="uses" />
+            <depends-on name="java.awt.Component" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.MatchFrame" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.BankFrame$1" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.MatchFrame$1" classification="class" visibility="default">
+          <dependencies count="4">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.awt.event.ActionListener" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.MatchFrame" classification="uses" />
+            <depends-on name="java.awt.event.ActionEvent" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.MatchFrame" classification="class" visibility="default">
+          <dependencies count="33">
+            <depends-on name="javax.swing.JInternalFrame" classification="extends" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="javax.swing.JButton" classification="uses" />
+            <depends-on name="javax.swing.JTable" classification="uses" />
+            <depends-on name="javax.swing.table.DefaultTableModel" classification="uses" />
+            <depends-on name="javax.swing.JPanel" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Bank" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+            <depends-on name="net.sourceforge.javamatch.engine.MatchEngine" classification="uses" />
+            <depends-on name="net.sourceforge.javamatch.query.QuerySet" classification="uses" />
+            <depends-on name="net.sourceforge.javamatch.engine.MatchResult" classification="uses" />
+            <depends-on name="java.util.Iterator" classification="uses" />
+            <depends-on name="net.sourceforge.javamatch.engine.ResultItem" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="net.sourceforge.javamatch.engine.MatchException" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.awt.Container" classification="uses" />
+            <depends-on name="java.awt.BorderLayout" classification="uses" />
+            <depends-on name="java.awt.LayoutManager" classification="uses" />
+            <depends-on name="java.awt.FlowLayout" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.MatchFrame$1" classification="uses" />
+            <depends-on name="java.awt.event.ActionListener" classification="uses" />
+            <depends-on name="java.awt.Component" classification="uses" />
+            <depends-on name="javax.swing.table.TableModel" classification="uses" />
+            <depends-on name="javax.swing.JScrollPane" classification="uses" />
+            <depends-on name="net.sourceforge.javamatch.query.Maximum" classification="uses" />
+            <depends-on name="net.sourceforge.javamatch.query.MatchQuery" classification="uses" />
+            <depends-on name="java.lang.Float" classification="uses" />
+            <depends-on name="java.lang.Long" classification="uses" />
+            <depends-on name="java.lang.Integer" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.NewAccountFrame$OKAction" classification="class" visibility="default">
+          <dependencies count="8">
+            <depends-on name="org.prevayler.demos.demo2.gui.RobustAction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.gui.NewAccountFrame" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.AccountCreation" classification="uses" />
+            <depends-on name="org.prevayler.TransactionWithQuery" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.NewAccountFrame" classification="class" visibility="default">
+          <dependencies count="9">
+            <depends-on name="org.prevayler.demos.demo2.gui.AccountFrame" classification="extends" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.awt.Container" classification="uses" />
+            <depends-on name="javax.swing.JPanel" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="javax.swing.JButton" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.NewAccountFrame$OKAction" classification="uses" />
+            <depends-on name="javax.swing.Action" classification="uses" />
+            <depends-on name="java.awt.Component" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.RobustAction" classification="class" visibility="default" isAbstract="yes">
+          <dependencies count="7">
+            <depends-on name="javax.swing.AbstractAction" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.awt.event.ActionEvent" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="javax.swing.JOptionPane" classification="uses" />
+            <depends-on name="java.awt.Component" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.TransferFrame$OKAction" classification="class" visibility="default">
+          <dependencies count="10">
+            <depends-on name="org.prevayler.demos.demo2.gui.RobustAction" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.gui.TransferFrame" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="javax.swing.JTextField" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.transactions.Transfer" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="org.prevayler.TransactionWithQuery" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.demo2.gui.TransferFrame" classification="class" visibility="default">
+          <dependencies count="12">
+            <depends-on name="org.prevayler.demos.demo2.gui.AccountFrame" classification="extends" />
+            <depends-on name="org.prevayler.demos.demo2.business.Account" classification="uses" />
+            <depends-on name="javax.swing.JTextField" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.awt.Container" classification="uses" />
+            <depends-on name="javax.swing.Box" classification="uses" />
+            <depends-on name="javax.swing.JPanel" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.awt.Component" classification="uses" />
+            <depends-on name="javax.swing.JButton" classification="uses" />
+            <depends-on name="org.prevayler.demos.demo2.gui.TransferFrame$OKAction" classification="uses" />
+            <depends-on name="javax.swing.Action" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.demos.scalability">
+        <type name="bin.org.prevayler.demos.scalability.Main" classification="class" visibility="public">
+          <dependencies count="27">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.util.Properties" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.lang.OutOfMemoryError" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.PrevaylerTransactionSubject" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.NumberFormatException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.io.FileInputStream" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.ScalabilityTestRun" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.QueryTestRun" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.PrevaylerQuerySubject" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.ScalabilityTestSubject" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.TransactionTestRun" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.jdbc.JDBCQuerySubject" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.jdbc.JDBCTransactionSubject" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.io.FileOutputStream" classification="uses" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.JavaSerializer" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="java.lang.Integer" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.QueryConnection" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="3">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.QueryTestRun" classification="class" visibility="public">
+          <dependencies count="7">
+            <depends-on name="org.prevayler.demos.scalability.ScalabilityTestRun" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.ScalabilityTestSubject" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.QueryConnection" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.Record" classification="class" visibility="public">
+          <dependencies count="8">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.math.BigDecimal" classification="uses" />
+            <depends-on name="java.util.Random" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.util.Arrays" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.RecordIterator" classification="class" visibility="public">
+          <dependencies count="8">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="java.util.Random" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.Record" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.ScalabilityTestRun$1" classification="class" visibility="default">
+          <dependencies count="6">
+            <depends-on name="java.lang.Thread" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.ScalabilityTestRun" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.lang.OutOfMemoryError" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.ScalabilityTestRun" classification="class" visibility="default" isAbstract="yes">
+          <dependencies count="16">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.ScalabilityTestSubject" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.foundation.StopWatch" classification="uses" />
+            <depends-on name="java.util.LinkedList" classification="uses" />
+            <depends-on name="java.lang.IllegalArgumentException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.lang.Runtime" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.ScalabilityTestRun$1" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="java.lang.Thread" classification="uses" />
+            <depends-on name="java.text.DecimalFormat" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Cool" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.ScalabilityTestSubject" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="3">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.TransactionConnection" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="2">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.Record" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.TransactionTestRun" classification="class" visibility="public">
+          <dependencies count="6">
+            <depends-on name="org.prevayler.demos.scalability.ScalabilityTestRun" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.ScalabilityTestSubject" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.Record" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.TransactionConnection" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.demos.scalability.jdbc">
+        <type name="bin.org.prevayler.demos.scalability.jdbc.JDBCQueryConnection" classification="class" visibility="default">
+          <dependencies count="15">
+            <depends-on name="org.prevayler.demos.scalability.jdbc.JDBCScalabilityConnection" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.QueryConnection" classification="uses" />
+            <depends-on name="java.sql.PreparedStatement" classification="uses" />
+            <depends-on name="java.sql.Connection" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+            <depends-on name="java.util.ArrayList" classification="uses" />
+            <depends-on name="java.sql.ResultSet" classification="uses" />
+            <depends-on name="java.sql.SQLException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.Record" classification="uses" />
+            <depends-on name="java.math.BigDecimal" classification="uses" />
+            <depends-on name="java.sql.Date" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.jdbc.JDBCQuerySubject" classification="class" visibility="public">
+          <dependencies count="6">
+            <depends-on name="org.prevayler.demos.scalability.jdbc.JDBCScalabilitySubject" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.jdbc.JDBCQueryConnection" classification="uses" />
+            <depends-on name="java.sql.Connection" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.jdbc.JDBCScalabilityConnection" classification="class" visibility="default" isAbstract="yes">
+          <dependencies count="13">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.sql.Connection" classification="uses" />
+            <depends-on name="java.sql.PreparedStatement" classification="uses" />
+            <depends-on name="java.sql.SQLException" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.Record" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.RecordIterator" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.math.BigDecimal" classification="uses" />
+            <depends-on name="java.sql.Date" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.sql.Statement" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.jdbc.JDBCScalabilitySubject" classification="class" visibility="default" isAbstract="yes">
+          <dependencies count="13">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.ScalabilityTestSubject" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.sql.Connection" classification="uses" />
+            <depends-on name="java.sql.SQLException" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.jdbc.JDBCScalabilityConnection" classification="uses" />
+            <depends-on name="java.sql.DriverManager" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.jdbc.JDBCTransactionConnection" classification="class" visibility="default">
+          <dependencies count="11">
+            <depends-on name="org.prevayler.demos.scalability.jdbc.JDBCScalabilityConnection" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.TransactionConnection" classification="uses" />
+            <depends-on name="java.sql.PreparedStatement" classification="uses" />
+            <depends-on name="java.sql.Connection" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.Record" classification="uses" />
+            <depends-on name="java.sql.SQLException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.math.BigDecimal" classification="uses" />
+            <depends-on name="java.sql.Date" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.jdbc.JDBCTransactionSubject" classification="class" visibility="public">
+          <dependencies count="6">
+            <depends-on name="org.prevayler.demos.scalability.jdbc.JDBCScalabilitySubject" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.jdbc.JDBCTransactionConnection" classification="uses" />
+            <depends-on name="java.sql.Connection" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.demos.scalability.prevayler">
+        <type name="bin.org.prevayler.demos.scalability.prevayler.AllRecordsReplacement" classification="class" visibility="default">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.Transaction" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.ScalabilitySystem" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.RecordIterator" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.prevayler.PrevalenceTest$PrevalenceFilter" classification="class" visibility="default">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.FileFilter" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.PrevalenceTest" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.prevayler.PrevalenceTest" classification="class" visibility="public">
+          <dependencies count="6">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.PrevalenceTest$PrevalenceFilter" classification="uses" />
+            <depends-on name="java.io.FileFilter" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.prevayler.PrevaylerQueryConnection" classification="class" visibility="default">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.QueryConnection" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.QuerySystem" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.prevayler.PrevaylerQuerySubject" classification="class" visibility="public">
+          <dependencies count="12">
+            <depends-on name="org.prevayler.demos.scalability.prevayler.PrevaylerScalabilitySubject" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.PrevaylerFactory" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.PrevalenceTest" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.QuerySystem" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.PrevaylerQueryConnection" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.prevayler.PrevaylerScalabilitySubject" classification="class" visibility="default" isAbstract="yes">
+          <dependencies count="10">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.ScalabilityTestSubject" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.AllRecordsReplacement" classification="uses" />
+            <depends-on name="org.prevayler.Transaction" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.prevayler.PrevaylerTransactionConnection" classification="class" visibility="default">
+          <dependencies count="10">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.TransactionConnection" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.Record" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.TestTransaction" classification="uses" />
+            <depends-on name="org.prevayler.Transaction" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.prevayler.PrevaylerTransactionSubject" classification="class" visibility="public">
+          <dependencies count="18">
+            <depends-on name="org.prevayler.demos.scalability.prevayler.PrevaylerScalabilitySubject" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="org.prevayler.PrevaylerFactory" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="java.lang.IllegalAccessException" classification="uses" />
+            <depends-on name="java.lang.InstantiationException" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.PrevalenceTest" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.PrevaylerTransactionConnection" classification="uses" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.TransactionSystem" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.prevayler.QuerySystem" classification="class" visibility="default">
+          <dependencies count="13">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.ScalabilitySystem" classification="uses" />
+            <depends-on name="java.util.Map" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.RecordIterator" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.Record" classification="uses" />
+            <depends-on name="java.util.Iterator" classification="uses" />
+            <depends-on name="java.util.Map$Entry" classification="uses" />
+            <depends-on name="java.util.HashMap" classification="uses" />
+            <depends-on name="java.util.ArrayList" classification="uses" />
+            <depends-on name="java.util.Set" classification="uses" />
+            <depends-on name="java.util.Collections" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.prevayler.ScalabilitySystem" classification="interface" visibility="default" isAbstract="yes">
+          <dependencies count="3">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.Serializable" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.RecordIterator" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.prevayler.TestTransaction" classification="class" visibility="default">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.Transaction" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.Record" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.TransactionSystem" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.demos.scalability.prevayler.TransactionSystem" classification="class" visibility="default">
+          <dependencies count="8">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.demos.scalability.prevayler.ScalabilitySystem" classification="uses" />
+            <depends-on name="java.util.Map" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.Record" classification="uses" />
+            <depends-on name="org.prevayler.demos.scalability.RecordIterator" classification="uses" />
+            <depends-on name="java.util.HashMap" classification="uses" />
+            <depends-on name="java.lang.Long" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.foundation">
+        <type name="bin.org.prevayler.foundation.Chunk" classification="class" visibility="public">
+          <dependencies count="4">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.util.Map" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.util.LinkedHashMap" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.Chunking" classification="class" visibility="public">
+          <dependencies count="19">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.util.regex.Pattern" classification="uses" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Chunk" classification="uses" />
+            <depends-on name="java.util.Iterator" classification="uses" />
+            <depends-on name="java.util.Map$Entry" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="java.util.StringTokenizer" classification="uses" />
+            <depends-on name="java.util.Map" classification="uses" />
+            <depends-on name="java.io.ByteArrayOutputStream" classification="uses" />
+            <depends-on name="java.lang.CharSequence" classification="uses" />
+            <depends-on name="java.util.regex.Matcher" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.Integer" classification="uses" />
+            <depends-on name="java.util.Set" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.util.LinkedHashMap" classification="uses" />
+            <depends-on name="java.io.EOFException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.Cool" classification="class" visibility="public">
+          <dependencies count="8">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.InterruptedException" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.lang.Runnable" classification="uses" />
+            <depends-on name="java.lang.Thread" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.DeepCopier$Receiver" classification="class" visibility="default">
+          <dependencies count="12">
+            <depends-on name="java.lang.Thread" classification="extends" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.Error" classification="uses" />
+            <depends-on name="java.lang.InterruptedException" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="org.prevayler.foundation.DeepCopier" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.DeepCopier" classification="class" visibility="public">
+          <dependencies count="15">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="java.io.ByteArrayOutputStream" classification="uses" />
+            <depends-on name="java.io.ByteArrayInputStream" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.io.PipedOutputStream" classification="uses" />
+            <depends-on name="java.io.PipedInputStream" classification="uses" />
+            <depends-on name="org.prevayler.foundation.DeepCopier$Receiver" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.JavaSerializer" classification="uses" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Cool" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.DurableInputStream" classification="class" visibility="public">
+          <dependencies count="16">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="org.prevayler.foundation.monitor.Monitor" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Chunk" classification="uses" />
+            <depends-on name="java.io.ObjectStreamException" classification="uses" />
+            <depends-on name="java.io.UTFDataFormatException" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.io.BufferedInputStream" classification="uses" />
+            <depends-on name="java.io.FileInputStream" classification="uses" />
+            <depends-on name="java.io.EOFException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Chunking" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.DurableOutputStream" classification="class" visibility="public">
+          <dependencies count="10">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="java.io.FileOutputStream" classification="uses" />
+            <depends-on name="java.io.FileDescriptor" classification="uses" />
+            <depends-on name="java.io.ByteArrayOutputStream" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Guided" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.FileLocker" classification="class" visibility="public">
+          <dependencies count="11">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="java.io.RandomAccessFile" classification="uses" />
+            <depends-on name="java.nio.channels.FileLock" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.nio.channels.FileChannel" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.FileManager" classification="class" visibility="public">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.Guided" classification="class" visibility="public" isAbstract="yes">
+          <dependencies count="4">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.Turn" classification="uses" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.ObjectInputStreamWithClassLoader" classification="class" visibility="public">
+          <dependencies count="8">
+            <depends-on name="java.io.ObjectInputStream" classification="extends" />
+            <depends-on name="java.lang.ClassLoader" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="java.io.ObjectStreamClass" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.StopWatch" classification="class" visibility="public">
+          <dependencies count="2">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.System" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.Turn" classification="class" visibility="public">
+          <dependencies count="2">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.Cool" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.foundation.gzip">
+        <type name="bin.org.prevayler.foundation.gzip.ContinuableGZIPInputStream" classification="class" visibility="public">
+          <dependencies count="6">
+            <depends-on name="java.util.zip.GZIPInputStream" classification="extends" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.util.zip.Inflater" classification="uses" />
+            <depends-on name="java.io.SequenceInputStream" classification="uses" />
+            <depends-on name="java.io.ByteArrayInputStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.gzip.MultiMemberGZIPInputStream" classification="class" visibility="public">
+          <dependencies count="5">
+            <depends-on name="java.io.InputStream" classification="extends" />
+            <depends-on name="org.prevayler.foundation.gzip.ContinuableGZIPInputStream" classification="uses" />
+            <depends-on name="java.io.EOFException" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.UnsupportedOperationException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.gzip.MultiMemberGZIPOutputStream" classification="class" visibility="public">
+          <dependencies count="5">
+            <depends-on name="java.io.OutputStream" classification="extends" />
+            <depends-on name="java.util.zip.GZIPOutputStream" classification="uses" />
+            <depends-on name="org.prevayler.foundation.gzip.NonCloseableOutputStream" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.UnsupportedOperationException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.gzip.NonCloseableOutputStream" classification="class" visibility="public">
+          <dependencies count="2">
+            <depends-on name="java.io.OutputStream" classification="extends" />
+            <depends-on name="java.io.IOException" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.foundation.monitor">
+        <type name="bin.org.prevayler.foundation.monitor.Log4jMonitor" classification="class" visibility="public">
+          <dependencies count="9">
+            <depends-on name="org.prevayler.foundation.monitor.LoggingMonitor" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.apache.log4j.Logger" classification="uses" />
+            <depends-on name="org.apache.log4j.Level" classification="uses" />
+            <depends-on name="org.apache.log4j.Priority" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.monitor.LoggingMonitor" classification="class" visibility="public" isAbstract="yes">
+          <dependencies count="7">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.monitor.Monitor" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.monitor.Monitor" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.monitor.NullMonitor" classification="class" visibility="public">
+          <dependencies count="6">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.monitor.Monitor" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.monitor.SimpleMonitor" classification="class" visibility="public">
+          <dependencies count="7">
+            <depends-on name="org.prevayler.foundation.monitor.LoggingMonitor" classification="extends" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.foundation.network">
+        <type name="bin.org.prevayler.foundation.network.BaseNetworkImpl" classification="class" visibility="public" isAbstract="yes">
+          <dependencies count="15">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.Network" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.NetworkReceiverFactory" classification="uses" />
+            <depends-on name="java.util.Map" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.Service" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.NetworkServerObjectReceiver" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectReceiver" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="java.util.HashMap" classification="uses" />
+            <depends-on name="java.util.Collections" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="java.lang.Integer" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.NetworkServerObjectReceiverImpl" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.Network" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.Service" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectReceiver" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.NetworkClientObjectReceiverImpl$1" classification="class" visibility="default">
+          <dependencies count="2">
+            <depends-on name="java.lang.Thread" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.NetworkClientObjectReceiverImpl" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.NetworkClientObjectReceiverImpl" classification="class" visibility="public">
+          <dependencies count="10">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.ObjectReceiver" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.Service" classification="uses" />
+            <depends-on name="java.lang.Thread" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocketImpl" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.NetworkClientObjectReceiverImpl$1" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.NetworkImpl" classification="class" visibility="public">
+          <dependencies count="7">
+            <depends-on name="org.prevayler.foundation.network.BaseNetworkImpl" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectReceiver" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.Service" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.NetworkClientObjectReceiverImpl" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.NetworkReceiverFactory" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.Service" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectReceiver" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.NetworkServerObjectReceiver" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="1">
+            <depends-on name="java.lang.Object" classification="extends" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.NetworkServerObjectReceiverImpl" classification="class" visibility="public">
+          <dependencies count="11">
+            <depends-on name="java.lang.Thread" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.NetworkServerObjectReceiver" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.Service" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectServerSocket" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.NetworkReceiverFactory" classification="uses" />
+            <depends-on name="java.net.SocketException" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectServerSocketImpl" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectReceiver" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.NetworkSessionId" classification="class" visibility="public">
+          <dependencies count="4">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.ObjectReceiver" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="2">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.IOException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.ObjectServerSocket" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="3">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.ObjectServerSocketImpl" classification="class" visibility="public">
+          <dependencies count="7">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.ObjectServerSocket" classification="uses" />
+            <depends-on name="java.net.ServerSocket" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocketImpl" classification="uses" />
+            <depends-on name="java.net.Socket" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.ObjectSocket" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="3">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.ObjectSocketImpl" classification="class" visibility="public">
+          <dependencies count="10">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="java.net.Socket" classification="uses" />
+            <depends-on name="java.io.ObjectOutputStream" classification="uses" />
+            <depends-on name="java.io.ObjectInputStream" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.OldNetwork" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectServerSocket" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.OldNetworkImpl" classification="class" visibility="public">
+          <dependencies count="8">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.OldNetwork" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectServerSocket" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocketImpl" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectServerSocketImpl" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.Service" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="2">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.ObjectReceiver" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.SessionsManager" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="3">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.NetworkSessionId" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.StubbornNetworkProxy" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.SessionsManagerImpl" classification="class" visibility="public">
+          <dependencies count="6">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.SessionsManager" classification="uses" />
+            <depends-on name="java.util.HashMap" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.NetworkSessionId" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.StubbornNetworkProxy" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.StubbornClientReceiverImpl" classification="class" visibility="public">
+          <dependencies count="14">
+            <depends-on name="java.lang.Thread" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.ObjectReceiver" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.StubbornNetwork" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.NetworkSessionId" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.Service" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="java.lang.InterruptedException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Cool" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.StubbornNetwork" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="4">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.StubbornNetworkClientConnector" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="1">
+            <depends-on name="java.lang.Object" classification="extends" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.StubbornNetworkImpl" classification="class" visibility="public">
+          <dependencies count="16">
+            <depends-on name="org.prevayler.foundation.network.BaseNetworkImpl" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.StubbornNetwork" classification="uses" />
+            <depends-on name="java.util.Map" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectReceiver" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.Service" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.SessionsManager" classification="uses" />
+            <depends-on name="java.util.HashMap" classification="uses" />
+            <depends-on name="java.util.Collections" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.StubbornClientReceiverImpl" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.StubbornServerReceiverImpl" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.SessionsManagerImpl" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocketImpl" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.StubbornNetworkProxy" classification="class" visibility="public">
+          <dependencies count="6">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.ObjectReceiver" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.StubbornNetworkClientConnector" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.InterruptedException" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.network.StubbornServerReceiverImpl" classification="class" visibility="public">
+          <dependencies count="11">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.network.ObjectReceiver" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.StubbornNetworkClientConnector" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.StubbornNetworkProxy" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.Service" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.SessionsManager" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.NetworkSessionId" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.NetworkClientObjectReceiverImpl" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.foundation.serialization">
+        <type name="bin.org.prevayler.foundation.serialization.JavaSerializer" classification="class" visibility="public">
+          <dependencies count="10">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="java.lang.ClassLoader" classification="uses" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+            <depends-on name="java.io.ObjectOutputStream" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="java.io.ObjectInputStream" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.ObjectInputStreamWithClassLoader" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.serialization.Serializer" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.serialization.SkaringaSerializer" classification="class" visibility="public">
+          <dependencies count="17">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+            <depends-on name="com.skaringa.javaxml.SerializerException" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="com.skaringa.javaxml.DeserializerException" classification="uses" />
+            <depends-on name="com.skaringa.javaxml.ObjectTransformer" classification="uses" />
+            <depends-on name="com.skaringa.javaxml.NoImplementationException" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="javax.xml.transform.stream.StreamResult" classification="uses" />
+            <depends-on name="javax.xml.transform.Result" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="javax.xml.transform.stream.StreamSource" classification="uses" />
+            <depends-on name="javax.xml.transform.Source" classification="uses" />
+            <depends-on name="com.skaringa.javaxml.ObjectTransformerFactory" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.serialization.XStreamSerializer$1" classification="class" visibility="default">
+          <dependencies count="4">
+            <depends-on name="java.lang.ThreadLocal" classification="extends" />
+            <depends-on name="org.prevayler.foundation.serialization.XStreamSerializer" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="com.thoughtworks.xstream.XStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.foundation.serialization.XStreamSerializer" classification="class" visibility="public">
+          <dependencies count="14">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="java.lang.ThreadLocal" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="com.thoughtworks.xstream.XStream" classification="uses" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+            <depends-on name="java.io.OutputStreamWriter" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.XStreamSerializer$1" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.io.Writer" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="java.io.InputStreamReader" classification="uses" />
+            <depends-on name="java.io.Reader" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.implementation">
+        <type name="bin.org.prevayler.implementation.Capsule" classification="class" visibility="public" isAbstract="yes">
+          <dependencies count="16">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="java.io.ByteArrayOutputStream" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Chunk" classification="uses" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+            <depends-on name="java.lang.Error" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="java.io.ByteArrayInputStream" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionWithQueryCapsule" classification="uses" />
+            <depends-on name="java.lang.Boolean" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionCapsule" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.PrevalentSystemGuard" classification="class" visibility="public">
+          <dependencies count="21">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionSubscriber" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionPublisher" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+            <depends-on name="org.prevayler.implementation.Capsule" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.Error" classification="uses" />
+            <depends-on name="org.prevayler.Query" classification="uses" />
+            <depends-on name="org.prevayler.Clock" classification="uses" />
+            <depends-on name="org.prevayler.implementation.snapshot.GenericSnapshotManager" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="java.lang.IllegalStateException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Cool" classification="uses" />
+            <depends-on name="org.prevayler.foundation.DeepCopier" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.PrevaylerDirectory$1" classification="class" visibility="default">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.FileFilter" classification="uses" />
+            <depends-on name="org.prevayler.implementation.PrevaylerDirectory" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.PrevaylerDirectory$2" classification="class" visibility="default">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.util.Comparator" classification="uses" />
+            <depends-on name="org.prevayler.implementation.PrevaylerDirectory" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="java.lang.Long" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.PrevaylerDirectory" classification="class" visibility="public">
+          <dependencies count="14">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.FileManager" classification="uses" />
+            <depends-on name="java.lang.IllegalArgumentException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.Long" classification="uses" />
+            <depends-on name="org.prevayler.implementation.PrevaylerDirectory$1" classification="uses" />
+            <depends-on name="java.io.FileFilter" classification="uses" />
+            <depends-on name="org.prevayler.implementation.PrevaylerDirectory$2" classification="uses" />
+            <depends-on name="java.util.Arrays" classification="uses" />
+            <depends-on name="java.util.Comparator" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.PrevaylerImpl" classification="class" visibility="public">
+          <dependencies count="20">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.Prevayler" classification="uses" />
+            <depends-on name="org.prevayler.implementation.PrevalentSystemGuard" classification="uses" />
+            <depends-on name="org.prevayler.Clock" classification="uses" />
+            <depends-on name="org.prevayler.implementation.snapshot.GenericSnapshotManager" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionPublisher" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="org.prevayler.Transaction" classification="uses" />
+            <depends-on name="org.prevayler.implementation.Capsule" classification="uses" />
+            <depends-on name="org.prevayler.Query" classification="uses" />
+            <depends-on name="org.prevayler.TransactionWithQuery" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionWithQueryCapsule" classification="uses" />
+            <depends-on name="org.prevayler.SureTransactionWithQuery" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionCapsule" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.TransactionCapsule" classification="class" visibility="default">
+          <dependencies count="5">
+            <depends-on name="org.prevayler.implementation.Capsule" classification="extends" />
+            <depends-on name="org.prevayler.Transaction" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.TransactionGuide" classification="class" visibility="public">
+          <dependencies count="11">
+            <depends-on name="org.prevayler.foundation.Guided" classification="extends" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Turn" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+            <depends-on name="java.lang.IllegalStateException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Chunk" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Chunking" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.TransactionTimestamp" classification="class" visibility="public">
+          <dependencies count="7">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.io.Serializable" classification="uses" />
+            <depends-on name="org.prevayler.implementation.Capsule" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Chunk" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Long" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.TransactionWithQueryCapsule" classification="class" visibility="default">
+          <dependencies count="7">
+            <depends-on name="org.prevayler.implementation.Capsule" classification="extends" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="org.prevayler.TransactionWithQuery" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.implementation.clock">
+        <type name="bin.org.prevayler.implementation.clock.BrokenClock" classification="class" visibility="public">
+          <dependencies count="3">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.Clock" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.clock.MachineClock" classification="class" visibility="public">
+          <dependencies count="3">
+            <depends-on name="org.prevayler.implementation.clock.BrokenClock" classification="extends" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.clock.PausableClock" classification="class" visibility="public">
+          <dependencies count="4">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.Clock" classification="uses" />
+            <depends-on name="org.prevayler.implementation.clock.BrokenClock" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.implementation.journal">
+        <type name="bin.org.prevayler.implementation.journal.Journal" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.implementation.TransactionGuide" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionSubscriber" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.journal.PersistentJournal" classification="class" visibility="public">
+          <dependencies count="24">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.implementation.journal.Journal" classification="uses" />
+            <depends-on name="org.prevayler.implementation.PrevaylerDirectory" classification="uses" />
+            <depends-on name="org.prevayler.foundation.DurableOutputStream" classification="uses" />
+            <depends-on name="org.prevayler.foundation.StopWatch" classification="uses" />
+            <depends-on name="org.prevayler.foundation.monitor.Monitor" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionGuide" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionSubscriber" classification="uses" />
+            <depends-on name="org.prevayler.foundation.DurableInputStream" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Chunk" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+            <depends-on name="java.io.EOFException" classification="uses" />
+            <depends-on name="java.lang.IllegalStateException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Guided" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.lang.Thread" classification="uses" />
+            <depends-on name="java.lang.InterruptedException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.journal.TransientJournal" classification="class" visibility="public">
+          <dependencies count="12">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.implementation.journal.Journal" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionGuide" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionSubscriber" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+            <depends-on name="java.util.ArrayList" classification="uses" />
+            <depends-on name="java.lang.IllegalStateException" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.implementation.publishing">
+        <type name="bin.org.prevayler.implementation.publishing.AbstractPublisher" classification="class" visibility="public" isAbstract="yes">
+          <dependencies count="8">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionPublisher" classification="uses" />
+            <depends-on name="org.prevayler.Clock" classification="uses" />
+            <depends-on name="java.util.List" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionSubscriber" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+            <depends-on name="java.util.Iterator" classification="uses" />
+            <depends-on name="java.util.LinkedList" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.publishing.CentralPublisher" classification="class" visibility="public">
+          <dependencies count="16">
+            <depends-on name="org.prevayler.implementation.publishing.AbstractPublisher" classification="extends" />
+            <depends-on name="org.prevayler.implementation.clock.PausableClock" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.censorship.TransactionCensor" classification="uses" />
+            <depends-on name="org.prevayler.implementation.journal.Journal" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Turn" classification="uses" />
+            <depends-on name="org.prevayler.Clock" classification="uses" />
+            <depends-on name="org.prevayler.implementation.Capsule" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionGuide" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionSubscriber" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Cool" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.publishing.POBox" classification="class" visibility="public">
+          <dependencies count="7">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionSubscriber" classification="uses" />
+            <depends-on name="java.lang.Runnable" classification="uses" />
+            <depends-on name="java.util.LinkedList" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+            <depends-on name="org.prevayler.foundation.Cool" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.publishing.TransactionPublisher" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="6">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionSubscriber" classification="uses" />
+            <depends-on name="org.prevayler.implementation.Capsule" classification="uses" />
+            <depends-on name="org.prevayler.Clock" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.publishing.TransactionSubscriber" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="2">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.implementation.publishing.censorship">
+        <type name="bin.org.prevayler.implementation.publishing.censorship.LiberalTransactionCensor" classification="class" visibility="public">
+          <dependencies count="5">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.implementation.publishing.censorship.TransactionCensor" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.Error" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.publishing.censorship.StrictTransactionCensor" classification="class" visibility="public">
+          <dependencies count="10">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.implementation.publishing.censorship.TransactionCensor" classification="uses" />
+            <depends-on name="org.prevayler.implementation.PrevalentSystemGuard" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="org.prevayler.implementation.snapshot.GenericSnapshotManager" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.Error" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.publishing.censorship.TransactionCensor" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="4">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.Error" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.implementation.replication">
+        <type name="bin.org.prevayler.implementation.replication.ClientPublisher$1" classification="class" visibility="default">
+          <dependencies count="3">
+            <depends-on name="java.lang.Thread" classification="extends" />
+            <depends-on name="org.prevayler.implementation.replication.ClientPublisher" classification="uses" />
+            <depends-on name="java.lang.Exception" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.replication.ClientPublisher" classification="class" visibility="public">
+          <dependencies count="24">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionPublisher" classification="uses" />
+            <depends-on name="org.prevayler.implementation.clock.BrokenClock" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionSubscriber" classification="uses" />
+            <depends-on name="org.prevayler.implementation.Capsule" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.Error" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.OldNetwork" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Thread" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+            <depends-on name="java.lang.InterruptedException" classification="uses" />
+            <depends-on name="org.prevayler.Clock" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="org.prevayler.implementation.replication.ClientPublisher$1" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="java.lang.UnsupportedOperationException" classification="uses" />
+            <depends-on name="java.lang.Long" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="java.lang.IllegalStateException" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.replication.ServerConnection$1" classification="class" visibility="default">
+          <dependencies count="10">
+            <depends-on name="java.lang.Thread" classification="extends" />
+            <depends-on name="org.prevayler.implementation.replication.ServerConnection" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionPublisher" classification="uses" />
+            <depends-on name="org.prevayler.Clock" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.lang.InterruptedException" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.replication.ServerConnection" classification="class" visibility="default">
+          <dependencies count="17">
+            <depends-on name="java.lang.Thread" classification="extends" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionSubscriber" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionPublisher" classification="uses" />
+            <depends-on name="org.prevayler.implementation.Capsule" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+            <depends-on name="org.prevayler.implementation.publishing.POBox" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="java.lang.RuntimeException" classification="uses" />
+            <depends-on name="java.lang.Error" classification="uses" />
+            <depends-on name="org.prevayler.implementation.TransactionTimestamp" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.lang.Long" classification="uses" />
+            <depends-on name="org.prevayler.implementation.replication.ServerConnection$1" classification="uses" />
+            <depends-on name="java.util.Date" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.replication.ServerListener" classification="class" visibility="public">
+          <dependencies count="7">
+            <depends-on name="java.lang.Thread" classification="extends" />
+            <depends-on name="org.prevayler.implementation.publishing.TransactionPublisher" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectServerSocket" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.OldNetwork" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="org.prevayler.implementation.replication.ServerConnection" classification="uses" />
+            <depends-on name="org.prevayler.foundation.network.ObjectSocket" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+      <namespace name="bin.org.prevayler.implementation.snapshot">
+        <type name="bin.org.prevayler.implementation.snapshot.GenericSnapshotManager" classification="class" visibility="public">
+          <dependencies count="20">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.util.Map" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="org.prevayler.implementation.PrevaylerDirectory" classification="uses" />
+            <depends-on name="org.prevayler.implementation.PrevalentSystemGuard" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.Serializer" classification="uses" />
+            <depends-on name="java.util.Iterator" classification="uses" />
+            <depends-on name="java.io.File" classification="uses" />
+            <depends-on name="java.io.OutputStream" classification="uses" />
+            <depends-on name="java.io.FileInputStream" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+            <depends-on name="java.lang.ClassNotFoundException" classification="uses" />
+            <depends-on name="java.util.Set" classification="uses" />
+            <depends-on name="java.lang.IllegalArgumentException" classification="uses" />
+            <depends-on name="java.lang.StringBuilder" classification="uses" />
+            <depends-on name="org.prevayler.foundation.serialization.JavaSerializer" classification="uses" />
+            <depends-on name="java.util.Collections" classification="uses" />
+            <depends-on name="java.io.FileOutputStream" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="bin.org.prevayler.implementation.snapshot.NullSnapshotManager" classification="class" visibility="public">
+          <dependencies count="4">
+            <depends-on name="org.prevayler.implementation.snapshot.GenericSnapshotManager" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.io.IOException" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+    </container>
+  </context>
+</ODEM>

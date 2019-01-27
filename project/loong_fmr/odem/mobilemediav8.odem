@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ODEM PUBLIC "-//PFSW//DTD ODEM 1.1" "http://pfsw.org/ODEM/schema/dtd/odem-1.1.dtd">
+
+<ODEM version="1">
+  <header>
+    <created-by>
+      <exporter version="1.1.1">org.pf.tools.cda.ext.export.xml.XmlFileODEMExporter</exporter>
+      <provider>Manfred Duchrow Consulting &amp; Software</provider>
+    </created-by>
+  </header>
+  <context name="New Workset">
+    <container name="/Users/tangchris/Downloads/MobilePhoto OOP/jars/MobilePhoto.jar" classification="jar">
+      <namespace name="ubc.midp.mobilephoto.core.ui.controller">
+        <type name="ubc.midp.mobilephoto.core.ui.controller.AbstractController" classification="class" visibility="public" isAbstract="yes">
+          <dependencies count="17">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="javax.microedition.lcdui.CommandListener" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.ControllerInterface" classification="implements" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.MainUIMidlet" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.AlbumData" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.List" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Command" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Displayable" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Alert" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.StringBuffer" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Display" classification="uses" />
+            <depends-on name="javax.microedition.midlet.MIDlet" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.ScreenSingleton" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="ubc.midp.mobilephoto.core.ui.controller.AlbumController" classification="class" visibility="public">
+          <dependencies count="24">
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.AbstractController" classification="extends" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.MainUIMidlet" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.AlbumData" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.AlbumListScreen" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Command" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.NewLabelScreen" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.List" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Alert" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.PersistenceMechanismException" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.InvalidPhotoAlbumNameException" classification="uses" />
+            <depends-on name="java.lang.StringBuffer" classification="uses" />
+            <depends-on name="javax.microedition.rms.RecordStoreFullException" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.ScreenSingleton" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Displayable" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.CommandListener" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Display" classification="uses" />
+            <depends-on name="javax.microedition.midlet.MIDlet" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.AlertType" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Image" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="ubc.midp.mobilephoto.core.ui.controller.BaseController" classification="class" visibility="public">
+          <dependencies count="16">
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.AbstractController" classification="extends" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.MainUIMidlet" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.AlbumData" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.AlbumListScreen" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Command" classification="uses" />
+            <depends-on name="java.lang.StringBuffer" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.List" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Image" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Displayable" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="java.lang.Class" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.ScreenSingleton" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.SelectTypeOfMedia" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="ubc.midp.mobilephoto.core.ui.controller.ControllerInterface" classification="interface" visibility="public" isAbstract="yes">
+          <dependencies count="2">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="javax.microedition.lcdui.Command" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="ubc.midp.mobilephoto.core.ui.controller.MediaController" classification="class" visibility="public">
+          <dependencies count="44">
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.MediaListController" classification="extends" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.MediaData" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.NewLabelScreen" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.MainUIMidlet" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.AlbumData" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.AlbumListScreen" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Command" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.AddMediaToAlbum" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.CaptureVideoScreen" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.VideoCaptureController" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.PhotoViewController" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.MultiMediaData" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Alert" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.InvalidImageDataException" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.PersistenceMechanismException" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.ImageNotFoundException" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.PlayMediaScreen" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.MusicPlayController" classification="uses" />
+            <depends-on name="java.io.InputStream" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.PlayVideoScreen" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.PlayVideoController" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.List" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Image" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.PhotoViewScreen" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.AbstractController" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.sms.SmsSenderController" classification="uses" />
+            <depends-on name="java.lang.StringBuffer" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.MusicAlbumData" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.ImagePathNotValidException" classification="uses" />
+            <depends-on name="javax.microedition.rms.RecordStoreFullException" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.VideoAlbumData" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.ImageAlbumData" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.ScreenSingleton" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Displayable" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.CommandListener" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.ControllerInterface" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.AlertType" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Display" classification="uses" />
+            <depends-on name="javax.microedition.midlet.MIDlet" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="ubc.midp.mobilephoto.core.ui.controller.MediaListController" classification="class" visibility="public">
+          <dependencies count="26">
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.AbstractController" classification="extends" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.MainUIMidlet" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.AlbumData" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.AlbumListScreen" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Command" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.List" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Alert" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.UnavailablePhotoAlbumException" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.MediaController" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.MediaListScreen" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.MediaData" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.ImageAlbumData" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.MusicAlbumData" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.VideoAlbumData" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Display" classification="uses" />
+            <depends-on name="javax.microedition.midlet.MIDlet" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Displayable" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.ScreenSingleton" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.ControllerInterface" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.CommandListener" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.AlertType" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Image" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="ubc.midp.mobilephoto.core.ui.controller.MusicPlayController" classification="class" visibility="public">
+          <dependencies count="14">
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.AbstractController" classification="extends" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.PlayMediaScreen" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.MainUIMidlet" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.AlbumData" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.List" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Command" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.StringBuffer" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.AlbumListScreen" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Displayable" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.ScreenSingleton" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="ubc.midp.mobilephoto.core.ui.controller.PhotoViewController" classification="class" visibility="public">
+          <dependencies count="29">
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.AbstractController" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.CaptureVideoScreen" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.MainUIMidlet" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.AlbumData" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.AlbumListScreen" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Command" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.AddMediaToAlbum" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Alert" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.ImageNotFoundException" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.MediaData" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.InvalidImageDataException" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.PersistenceMechanismException" classification="uses" />
+            <depends-on name="java.lang.StringBuffer" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.PhotoViewScreen" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.ImagePathNotValidException" classification="uses" />
+            <depends-on name="javax.microedition.rms.RecordStoreFullException" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.List" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Displayable" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.CommandListener" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Display" classification="uses" />
+            <depends-on name="javax.microedition.midlet.MIDlet" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.AlertType" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Image" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.ScreenSingleton" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="ubc.midp.mobilephoto.core.ui.controller.PlayVideoController" classification="class" visibility="public">
+          <dependencies count="14">
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.AbstractController" classification="extends" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.PlayVideoScreen" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.MainUIMidlet" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.AlbumData" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.List" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Command" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.StringBuffer" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.AlbumListScreen" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Displayable" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.ScreenSingleton" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="ubc.midp.mobilephoto.core.ui.controller.ScreenSingleton" classification="class" visibility="public">
+          <dependencies count="3">
+            <depends-on name="java.lang.Object" classification="extends" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.SelectTypeOfMedia" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="ubc.midp.mobilephoto.core.ui.controller.SelectMediaController" classification="class" visibility="public">
+          <dependencies count="14">
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.AbstractController" classification="extends" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.BaseController" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.AlbumData" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.MainUIMidlet" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.List" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Command" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.StringBuffer" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Display" classification="uses" />
+            <depends-on name="javax.microedition.midlet.MIDlet" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Displayable" classification="uses" />
+          </dependencies>
+        </type>
+        <type name="ubc.midp.mobilephoto.core.ui.controller.VideoCaptureController" classification="class" visibility="public">
+          <dependencies count="21">
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.AbstractController" classification="extends" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.CaptureVideoScreen" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.AddMediaToAlbum" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.MainUIMidlet" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.datamodel.AlbumData" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.List" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Command" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.InvalidImageDataException" classification="uses" />
+            <depends-on name="lancs.midp.mobilephoto.lib.exceptions.PersistenceMechanismException" classification="uses" />
+            <depends-on name="java.lang.String" classification="uses" />
+            <depends-on name="java.lang.StringBuffer" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.screens.AlbumListScreen" classification="uses" />
+            <depends-on name="java.lang.System" classification="uses" />
+            <depends-on name="java.io.PrintStream" classification="uses" />
+            <depends-on name="java.lang.Object" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Displayable" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.CommandListener" classification="uses" />
+            <depends-on name="javax.microedition.lcdui.Display" classification="uses" />
+            <depends-on name="javax.microedition.midlet.MIDlet" classification="uses" />
+            <depends-on name="java.lang.Throwable" classification="uses" />
+            <depends-on name="ubc.midp.mobilephoto.core.ui.controller.ScreenSingleton" classification="uses" />
+          </dependencies>
+        </type>
+      </namespace>
+    </container>
+  </context>
+</ODEM>

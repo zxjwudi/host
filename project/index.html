@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Yutian Tang's Code Page">
+    <meta name="author" content="Yutian Tang Chris">
+
+    <title>Yutian Tang (Chris) | Code</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href=".././css/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="backtop">&#x2191;</div>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Yutian Tang</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark active" href="../index.html">Home</a>
+
+        <a class="p-2 text-dark dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Research</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="../research/publication/index.html">Publication</a>
+          <a class="dropdown-item" href="../research/service/">Academic Service</a>
+          <a class="dropdown-item" href="../research/award/">Selected Award</a>
+        </div>
+
+        <a class="p-2 text-dark" href="../teaching/">Teaching</a>
+        <a class="p-2 text-dark" href="#">Code</a>
+        <a class="p-2 text-dark" href="../misc/">Misc</a>
+        <a class="p-2 text-dark" data-toggle="modal" data-target="#contactModal" href="#">Contact</a>
+      </nav>
+    </div>
+
+
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Contact</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                     <pre><code>#include &lt;string.h&gt;<br>strcat("csytang","@comp.polyu.edu.hk");</code></pre>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+        </div>
+    </div>
+
+    <main role="main" class="container">
+      	<h3 class="pb-3 mb-4 font-italic border-bottom">Research Prototypes and Tools</h3>
+      	
+		<ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+		  <li class="nav-item">
+		    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#spl" role="tab" aria-controls="pills-home" aria-selected="true">Software Product Line</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#android" role="tab" aria-controls="pills-profile" aria-selected="false">Android</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#script" role="tab" aria-controls="pills-contact" aria-selected="false">Scripts</a>
+		  </li>
+		</ul>
+
+    
+		<div class="tab-content" id="pills-tabContent">
+		  <div class="tab-pane fade show active" id="spl" role="tabpanel" aria-labelledby="pills-home-tab">
+		  	<table class="container">
+  				<tbody>
+			    <tr>
+			      <td class="align-baseline"><a href="https://www.chrisyttang.org/project/loong/" target="_blank"><img src="img/loong.jpg" height="36"></a></td>
+			      <td class="align-baseline">Loong: A colored IDE for feature mining and annotation</td>
+			    </tr>
+			    <tr>
+			      <td class="align-baseline"><a href="https://www.chrisyttang.org/project/loong_fmr/" target="_blank"><img src="img/loongfmr.jpg" height="36"></a></td>
+			      <td class="align-baseline">LoongFMR: Feature model recovery toolkit</td>
+			    </tr>
+          <tr>
+            <td class="align-baseline"><a href="#" target="_blank"><img src="img/IntelliJlogo.png" height="36"></a></td>
+            <td class="align-baseline">caIDE: An IntelliJ IDEA plugin for building APL</td>
+          </tr>
+			  </tbody>
+			</table>
+		  </div>
+
+		  <div class="tab-pane fade" id="android" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <table class="container">
+            <tbody>
+            <tr>
+              <td class="align-baseline"><a href="https://bitbucket.org/csytang/edodroid" target="_blank">EdoDroid</a></td>
+              <td class="align-baseline">EdoDroid: A static analysis tool for Android with IC3 support</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+
+		  <div class="tab-pane fade" id="script" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <table class="container">
+          <tbody>
+            <tr>
+              <td class="align-baseline"><a href="https://bitbucket.org/csytang/githubbugreportexplorer/" target="_blank">GithubBugReportExplorer</a></td>
+              <td class="align-baseline">A python script that automatically extract bug reports with in a given repository and export to a <code>xml</code> file.</td>
+            </tr>
+            <tr>
+              <td class="align-baseline"><a href="https://bitbucket.org/csytang/amazonstorecrawler/" target="_blank"><img src="img/amazon.jpg" height="36"></a></td>
+              <td class="align-baseline">A python script that automatically extract apps (in <code>apks</code> format) from Amazon App Store.</td>
+            </tr>
+            <tr>
+              <td class="align-baseline"><a href="https://bitbucket.org/csytang/playdronebash/" target="_blank">PlaydroneLegacyDownloader</a></td>
+              <td class="align-baseline">A bash script for <code>playdrone</code> legacy.</td>
+            </tr>
+            <tr>
+              <td class="align-baseline"><a href="#" target="_blank">AEGooglePlayCrawler</a></td>
+              <td class="align-baseline">An Android <code>emulator</code> based Google Play Store Crawler Framework (bash+py+java).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+		</div>
+
+    <hr>
+
+
+    <h3 class="pb-3 mb-4 font-italic border-bottom">Online Artefacts</h3>
+
+
+
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+        Note that, if you cannot find the source code on the project page provided, the project is considered as a <code>private</code> project (closed-source) at least for now.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+
+    
+
+	
+
+    </main><!-- /.container -->
+
+
+    <div class="container">
+      <footer class="pt-2 my-md-5 pt-md-2 border-top">
+        <small class="d-block mb-3 text-muted">Yutian Tang &copy; 2017-2018</small>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./../js/holder.min.js"></script>
+    <script src="./../js/float-panel.js"></script>
+    
+  </body>
+</html>

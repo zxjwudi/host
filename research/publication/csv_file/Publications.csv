@@ -1,0 +1,8 @@
+id,Type,Topic,Year,Title,Authors,URL,pdf,CCF,Core,Venue,Details
+7,JO,4,2018,Software Defect Prediction Based on Kernel PCA and Weighted Extreme Learning Machine ,107 109 105 116 117 118 101 108,https://www.sciencedirect.com/science/article/abs/pii/S0950584918302088,paper/ist2018-zhou.pdf,2,3,6,Information and Software Technology
+6,CO,6,2018,A Smart Context-aware Program Assistant based on Dynamic Programming Event Modeling,111 112 101 113 114 115,https://ieeexplore.ieee.org/document/8539158,,2,2,32,The 29th IEEE International Symposium on Software Reliability Engineering (best paper award)
+5,CO,4,2018,Cross Version Defect Prediction with Representative Data via Sparse Subset Selection,107 106 101 105 108 109 110,https://dl.acm.org/citation.cfm?id=3196331,paper/icpc2018-zhou.pdf,2,4,23,"26th IEEE/ACM International Conference on Program Comprehension, pp 132-143"
+4,TH,1,2017,The Pathway to Customized Product Solutions,101 103,,,4,5,0,"Ph.D., thesis"
+3,CO,1,2017,Constructing Feature Model by Identifying Variability-aware Modules,101 103,https://dl.acm.org/citation.cfm?id=3101446,paper/icpc2017.pdf,2,4,23,"25th IEEE/ACM International Conference on Program Comprehension, pp 263-274"
+2,CO,1,2017,StiCProb: A Novel Feature Mining Approach using Conditional Probability,101 103,http://ieeexplore.ieee.org/document/7884608/,paper/saner2017.pdf,2,3,16,"24th IEEE International Conference on Software Analysis, Evolution, and Reengineering, pp 44-55"
+1,CO,1,2015,A Top-down Feature Mining Framework for Software Product Line,101 103,,paper/iceis2015.pdf,4,4,0,17th International Conference on Enterprise Information Systems 

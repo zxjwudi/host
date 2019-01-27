@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+    <channel>
+        <title>Yutian Tang's News</title>
+        <link>http://www.chrisyttang.org</link>
+        <description>News from Yutian Tang's work and research</description>
+        <generator>Feeder 3 3.5.10(3072); Mac OS X Version 10.13.4 (Build 17E199) http://reinventedsoftware.com/feeder/</generator>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <language>en</language>
+        <pubDate>Thu, 09 Aug 2018 15:39:50 +0800</pubDate>
+        <lastBuildDate>Thu, 09 Aug 2018 15:39:50 +0800</lastBuildDate>
+        <item>
+            <title>Paper Accepted to ISSRE (Industry Track)</title>
+            <description><![CDATA[One paper entitled "A Smart Context-aware Program Assistant based on Dynamic Programming Event Modeling" has been accepted to ISSRE 2018 Industry Track.]]></description>
+            <pubDate>Thu, 09 Aug 2018 15:39:49 +0800</pubDate>
+            <guid isPermaLink="false">9E271BED-BCAD-4809-A406-820017F88174</guid>
+        </item>
+        <item>
+            <title>Paper Accepted to ICPC 2017</title>
+            <link>https://www.chrisyttang.org</link>
+            <description><![CDATA[Our paper entitled "Constructing feature model by identifying variability-aware modules." has been accepted to ICPC 2017!]]></description>
+            <pubDate>Wed, 01 Mar 2017 22:12:00 +0800</pubDate>
+            <guid isPermaLink="false">165D926A-C14D-42BC-B442-9DCFC553B12B</guid>
+        </item>
+        <item>
+            <title>Defended my Ph.D. thesis</title>
+            <link>https://www.chrisyttang.org</link>
+            <description><![CDATA[I successfully defended my thesis today!]]></description>
+            <pubDate>Tue, 15 May 2018 22:11:00 +0800</pubDate>
+            <guid isPermaLink="false">3A26D2C9-6437-4820-9B44-562A88F3F90E</guid>
+        </item>
+        <item>
+            <title>Paper Accepted to ICPC 2018</title>
+            <link>https://www.chrisyttang.org</link>
+            <description><![CDATA[One paper entitled "Cross Version Defect Prediction with Representative Data via Sparse Subset Selection" has been accepted to ICPC 2018!]]></description>
+            <pubDate>Fri, 02 Mar 2018 22:11:00 +0800</pubDate>
+            <guid isPermaLink="false">ACA6C65E-2A6A-4215-92A4-171F31E86AA3</guid>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,11 @@
+licens
+license
+licenses
+licensed
+chukwa
+apache
+distribute
+hadoop
+except
+org
+jena

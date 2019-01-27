@@ -1,0 +1,66 @@
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+
+h1{
+  text-shadow: 2px 2px 4px #d8d8d8;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+a:hover{
+  color:#ff0000;
+}
+
+
+
+.navbar-fixed-top + .content-container {
+	margin-top: 70px;
+}
+.content-container {
+	margin: 0 130px;
+}
+
+#backtop {
+    position: fixed;
+    left:auto;right: 10px;top:auto;bottom: 20px;
+    outline: none;
+    overflow:hidden;
+    text-align:center;
+    background-color:#eff2ec;
+    height:40px;
+    width:40px;
+    line-height:40px;
+    font-size:14px;
+    border-radius:3px;
+    cursor:pointer;
+    transition:all 0.3s linear;
+    z-index:999999;
+    opacity:1;
+    display:none;
+}
+#backtop:hover {
+     background-color:#ffffff;
+}
+#backtop.mcOut {
+    opacity:0;
+}
+

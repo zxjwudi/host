@@ -1,0 +1,9 @@
+@INPROCEEDINGS{7884608, 
+author={Y. Tang and H. Leung}, 
+booktitle={2017 IEEE 24th International Conference on Software Analysis, Evolution and Reengineering (SANER)}, 
+title={StiCProb: A novel feature mining approach using conditional probability}, 
+year={2017}, 
+pages={45-55}, 
+keywords={Buildings;Context;Correlation;Data mining;Feature extraction;Maintenance engineering;Programming;Software product line;feature mining;program slicing;variability}, 
+doi={10.1109/SANER.2017.7884608}, 
+month={Feb},}

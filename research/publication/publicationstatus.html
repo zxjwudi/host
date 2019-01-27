@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Publication Browser</title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+        <!--<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="PUBLIC">--> 
+        <link rel="stylesheet" href="./css/keshif.css"/ type="text/css">
+
+        <link rel="stylesheet" href="./css/font-awesome.min.css">
+        
+        <!--<script type="text/javascript" src="https://www.google.com/jsapi"></script>-->
+        <script type="text/javascript" src="./js/jsapi.js"></script>
+        <script type="text/javascript" src="./js/papaparse.js"></script>
+        <script type="text/javascript" src="./js/papaparse.min.js"></script>
+       	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> 
+        <script type="text/javascript" src="./js/keshif.js" charset="utf-8"></script>
+           
+                  
+<script type="text/javascript">        
+var demoID = 7;
+var socialShare = false;
+var noRibbon = true;
+
+
+function onclickpdf(x) {
+//console.log(kshf.dt_id.Publications);
+//console.log(x);
+
+kshf.dt_id.Publications[x].data.PDF_Clicks++;
+//console.log(kshf.dt_id.Publications[x].data.PDF_Clicks);
+        //clicks += 1;
+        //document.getElementById("clicks").innerHTML = clicks;
+    };
+
+function onclickslide(x) {
+kshf.dt_id.Publications[x].data.Slide_Clicks++;
+        //clicks += 1;
+        //document.getElementById("clicks").innerHTML = clicks;
+    };
+
+google.setOnLoadCallback(function() {
+    function resizeChart(){
+        var h=$(window).height()-90;
+        h = 700; // temp
+        var w=$(window).width()-29;
+        h = Math.max(h,500);
+        w = Math.max(w,700);
+        w-=50;
+        if($('#chart_div').height()===h && $('#chart_div').width()===w) return false;
+        $('#chart_div').height(h);
+        $('#chart_div').width (w);
+        return true;
+    }
+
+    resizeChart();
+    $(window).resize(function() {
+        if(resizeChart()) browser.updateLayout();
+    });
+
+    browser = new kshf.Browser({
+        domID: "#chart_div",
+        listMaxColWidthMult: 0.4,
+        categoryTextWidth:125,
+
+        source: {
+ //          gdocId: '0Ai6LdDWgaqgNdEp1aHBzSTg0T0RJVURqWVNGOGNkNXc',
+//gdocId: '1oYZa9ShstALpzu-eqEkNdaNML6HKeoKY-j9PAEB3zQc',
+//gdocId: '68u9xa4e4aac5ed724648a7fd41293a54d046',
+//gdocId: '',
+
+
+dirPath:'./csv_file/',
+fileType:'csv',
+            sheets: [
+                {name: "Publications"},
+                {name: "Venues"},
+                {name: "Authors"},
+                //{name: "Keywords"},
+                {name: "VenueTypes"},
+                {name: "Topics"},
+                {name: "CCFRanking"},
+                {name: "Core"}
+            ]
+        },
+        loadedCb: function(){
+            kshf.Util.cellToArray(kshf.dt.Publications, ['Authors']);
+        },
+  //      readyCb: function(){
+    //        $(".paperName").click(function(d){
+      //          browser.listDisplay.showListItemDetails(d.currentTarget.parentNode.parentNode.parentNode.__data__);
+        //    });
+//for(i=0;i<kshf.dt.Publications.length;i++)
+  //          browser.listDisplay.showListItemDetails(kshf.dt.Publications[i]);
+
+    //    },
+itemDisplay: {
+            sortColWidth: 45,
+            sortingOpts: [ {name: 'Year', value: function(){ return this.Year} } ],
+            textSearch: 'Title',
+            detailsToggle: "off",
+            autoExpandMore: true,
+            recordView: function(){
+                var j;
+                var str="";
+        
+                var pdf="./";
+                var z = this.pdf;
+                var final = pdf + z;
+        
+        //var anchor = document.getElementById("pubLink pdflink fa fa-file-pdf-o").href += final;
+                /*if(this.img!==""&&this.img!==null){
+                    str+="<img class='pdfImage' src='"+this.img+"'>";
+                }*/
+
+                // paper name
+
+                    str+="<span style='font-size: 15px;'> [</span>";
+                    //console.log(this)
+                    //console.log(this.Type);
+                    str+="<span style='font-size: 15px;'>"+kshf.dt_id.VenueTypes[this.Type].data.keyword+"</span>";
+                    str+="<span style='font-size: 15px;'>] </span>";
+                   
+                    str+="<span class='paperName'><b>"+this.Title+"</b></span>";
+
+                    if(this.pdf!==""&&this.pdf!==null){
+                        str+="<a class='pubLink pdflink fa fa-file-pdf-o' href='"+final+"' onClick='onclickpdf("+this.id+")' target='_blank'></a>";
+                    }
+                     
+                    /*if(this.doi!==""&&this.doi!==null){
+                        str+="<a class='pubLink doilink' href='http://dx.doi.org/"+this.doi+"' target='_blank'>[doi]</a>";
+                    }*/
+                    if(this.URL.trim()!==""){
+                        str+=" <a class='pubLink pdflink fa fa-file-powerpoint-o' data-toggle='modal' href='"+this.URL+"' onClick='onclickslide("+this.id+")' target='_blank'></a>";
+                    }
+
+                str+="</div>";
+
+                str+="<span class='item_details'>";
+
+                // author names
+                var authors = this.Authors;
+                str+="<div class=\"authorNames\"><span class='header'></span> ";
+
+                for(var j=0; j<authors.length; j++){
+                	if(kshf.dt_id.Authors[authors[j]].data.Name.trim()=="Yutian Tang"){
+                		str+="<span style=\"color:blue;\">"+kshf.dt_id.Authors[authors[j]].data.Name+"</span>";
+                	}else{
+                		str+=kshf.dt_id.Authors[authors[j]].data.Name;
+                	}
+                    
+                        
+                	//str+=authData.Name;
+                    
+                    if(j!==authors.length) {
+                        str+=', '; 
+                    }
+                }
+                str+="</div>";
+
+            
+
+
+                // Venue + details
+                str+="<div class='venueInfo'><span style='font-weight:bolder;'>"+this.Details+"</span>";
+                    /*if(this.Venue) {
+                        str+=" " + kshf.dt_id.Venues[this.Venue].data[2];
+                    }*/
+                    /*if(this.details.trim()!=="") {
+                        str+=this.details;
+                    }*/
+                str+="</div>";
+                    /* // keywords
+                    var cats = this.Topics;
+                    if(cats.length>0){
+                        str+="<div class=\"topics\"> <span class='header'>Topics</span>: ";
+                        for(j=0; j<cats.length; j++){
+                            str+=kshf.dt_id.Keywords[cats[j]].data.keyword;
+                            if(j!==cats.length-1) { str+=', '; }
+                        }
+                        str+="</div>";
+                    }
+                    */
+                    // award
+                    /*if(this.award!==""&this.award!==null){
+                        str+="<div class=\"iteminfo iteminfo_3\">&#9733; "+this.award+"</div>";
+                    }*/
+                str+="<br>";
+                return str;
+            }
+        },
+        summaries: [
+            /*{   title: "Topics", catTableName: "Topics", catLabel: "Name", layout:"right"
+            },*/{ name: "Authors", value: function(){
+                var authors = this.Authors;
+                
+                 newAuthors = [];
+                 for(i=0 ; i<authors.length ; i++){ 
+                    if(authors[i]!=226) 
+                    {
+                        newAuthors.push(authors[i]);
+                    //  console.log(authors[i]);
+                    }
+                  }
+                return newAuthors;
+                  },
+                catTableName: "Authors",layout:"right",
+                catLabel: function(){ return this.Name/*+". "+this.last_name*/; },
+
+                catTooltip: function(){ return this.Name/*+" "+this.last_name*/; },
+            },
+            /*{ title: "Topics", attribMap: "Type",
+                catLabel: function(){ console.log(this); return kshf.dt_id.VenueTypes[this.id].data.keyword; }
+            },*/
+            {title: "Topic", catTableName: "Topics", collapsed: false, catLabel: "topic", layout:"right",},
+            
+             { name: "Publication Year", panel: "right", collapsed: false, type: "categorical",  catSortBy:{value: "id", inverse: true}, value: "Year" },
+        
+            
+            
+            { title: "Venue", catTableName: "Venues", catLabel: "venue",collapsed: false, layout:"right", catSortBy:{value: "id", inverse: true}
+            },
+            
+            
+            
+            {title: "Type", catTableName: "VenueTypes", catLabel: "keyword",collapsed: false, layout:"right",
+            },
+
+            {name: "CCF(中国计算机学会推荐)", catTableName: "CCFRanking", catLabel: "ranking",collapsed: false, layout:"right", catSortBy:{value: "id", inverse: false}, value: "CCF"
+            },
+
+            {name: "CORE", catTableName: "Core", catLabel: "ranking",collapsed: false, layout:"right", catSortBy:{value: "id", inverse: false}, value: "Core"
+            },
+            
+            
+            
+
+            
+          /* { title: "Date", layout: 'middle'
+            },*/
+        ]
+        
+    });
+});
+
+</script>
+
+<style>
+
+#chart_div .bar_style_coauthor_FA{ background-color: #4D8B4D; }
+#chart_div .bar_style_coauthor_ST{ background-color: #FCC240; }
+#chart_div .bar_style_coauthor_RE{ background-color: #BF4B31; }
+#chart_div .bar_style_coauthor_IN{ background-color: #4B3929; }
+
+.header{
+    font-weight: 700;
+    font-variant: small-caps;
+}
+
+#chart_div {
+    background-color: white;
+    margin: 0px 25px 20px 25px;
+}
+
+#pagecell{
+    position: relative;
+    top: 30px;
+    left: 15px;
+    
+    display:inline-block;
+    background-color: #ffffff;
+}
+
+body {
+    font-family: Arial,sans-serif;
+    color: #333333;
+    margin: 0px;
+    padding: 0px;
+    background: #cccccc fixed;
+}
+
+#pageName {
+    padding: 0px 0px 14px 10px;
+    margin: 0px;
+}
+
+#pageName h2 {
+    font: bold 175% Arial,sans-serif;
+    color: #000000;
+    margin: 0px;
+    padding: 0px;
+}
+
+#pageName img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 0px;
+    margin: 0px;
+    z-index:2;
+}
+
+#pageName a.mainTitle:link, a.mainTitle:visited{
+    color: #005FA9;
+    text-decoration: none;
+}
+
+#pageName a.mainTitle:hover{
+    text-decoration: underline;
+}
+
+.KeshifCredit{
+    float:right;
+    margin: 15px;
+    font-size: 0.5em;
+    font-style: italic;
+    color: lightgray;
+    text-decoration: none;
+}
+.KeshifCredit:hover{
+    color: gray;
+}
+
+.paperName{
+    
+}
+.paperName:hover{
+    color: orangered;
+}
+.authorNames{
+    font-weight: 300;
+}
+.benb{
+    font-style: italic;
+}
+.doilink{
+    margin-left: 10px;
+    font-size: 0.7em;
+    vertical-align: top;
+}
+.externallink{
+    margin-left: 3px;
+    font-size: 0.7em;
+    vertical-align: top;
+}
+.pdflink{
+    margin-left: 10px;
+    vertical-align: top;
+}
+.item_details{
+    margin-left: 5px;
+}
+.venueInfo{
+    margin-left: 5px;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+.topics{
+    font-size: 0.9em;
+    font-weight: 300;
+    margin-left: 5px;
+    font-variant: small-caps;
+}
+.pubLink{
+    color: #005FA9;
+    display: inline-block;
+    text-decoration: none;
+}
+.pubLink:hover {
+    color: orangered !important;
+    text-decoration: none;
+}
+
+.pdfImage{
+    position:absolute;
+    right: 0px;
+    height: 100%;
+}
+.content{
+    padding-bottom: 4px;
+    padding-right: 40px;
+}
+#portfolio .portfolio-item {
+    right: 0;
+    margin: 0 0 15px;
+}
+
+#portfolio .portfolio-item .portfolio-link {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+#portfolio .portfolio-item .portfolio-link .caption {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: rgba(24,188,156,.9);
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    transition: all ease .5s;
+}
+
+#portfolio .portfolio-item .portfolio-link .caption:hover {
+    opacity: 1;
+}
+
+#portfolio .portfolio-item .portfolio-link .caption .caption-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 20px;
+    margin-top: -12px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+
+#portfolio .portfolio-item .portfolio-link .caption .caption-content i {
+    margin-top: -12px;
+}
+
+#portfolio .portfolio-item .portfolio-link .caption .caption-content h3,
+#portfolio .portfolio-item .portfolio-link .caption .caption-content h4 {
+    margin: 0;
+}
+
+
+</style>
+    </head>
+
+<body>
+
+    <div id="pagecell">
+        <div id="pageName">
+            
+        </div>
+        <div id="chart_div"></div>
+    </div>
+<script type="text/javascript" src="js/d3.3.5.5.min.js" charset="utf-8"></script> 
+
+    <!--<script type="text/javascript" src="http://localhost/jsapi"></script>-->
+
+</body>
+</html>
+
